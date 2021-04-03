@@ -27,6 +27,11 @@ let updateTime = function () {
     }
 }
 
+$(".saveBtn").click(function() {
+    
+  });
+  
+
 function saveEvent(rowhour) {
     var event = $("." + rowhour + " > :input").val();
 
