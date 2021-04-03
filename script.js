@@ -21,14 +21,19 @@ let updateTime = function () {
             var color = "past";
         } 
         var workTime = i + ":00:00";
-        $(".row-" + i + " input, .row-" + i + " form").addClass(color);
-        $(".row-9 > form").addClass(color);
-        // moment(workTime, "HH:mm:ss").format("hA") 
+        $(".row-" + i + " :input, form.row-" + i).addClass(color);
+        //$("form.row-9").addClass(color);
+        // moment(workTime, "HH:mm:ss").format("hA")
+        var storedEvent = localStorage.getItem("row-" + i);
+        console.log(storedEvent);
+        $(".row-" + i + " :input").val(storedEvent);
     }
 }
 
 $(".saveBtn").click(function() {
-    
+    var parentRow = $(this).parent().attr('id');
+    var eventValue = $("." + parentRow + " :input").val()
+    localStorage.setItem(parentRow, eventValue);
   });
   
 
@@ -39,7 +44,7 @@ function saveEvent(rowhour) {
     console.log(localStorage);
 
 }
-//setInterval(updateTime, 100);
+setInterval(updateTime, 1000);
 
 // Store Data
 //localStorage.setItem("test", "this");
