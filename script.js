@@ -21,10 +21,8 @@ let updateTime = function () {
             var color = "past";
         } 
         var workTime = i + ":00:00";
-        $(".row-" + i + " :input, form.row-" + i).addClass(color);
-        // moment(workTime, "HH:mm:ss").format("hA")
+        $("form.row-" + i).addClass(color);
         var storedEvent = localStorage.getItem("row-" + i);
-        console.log(storedEvent);
         $(".row-" + i + " :input").val(storedEvent);
     }
 }
